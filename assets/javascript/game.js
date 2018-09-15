@@ -1,96 +1,77 @@
-var playerCharChosen = false;
+var numMatch = 0;
+var blueNum = 0;
+var yellowNum = 0;
+var greenNum = 0;
+var redNum = 0;
+var userNum = 0;
+var wins = 0;
+var losses = 0;
 
-var characters = {
+function start(){
+    numMatch = Math.floor(Math.random() * 81 + 1);
     
-    kobe: {
+    $("#randomizedNum").html("Number to match: " + numMatch);
+
+    userNum = 0;
+    $("#currentScore").html("Current score: " + userNum);
+
+    blueNum = Math.floor(Math.random() * 10 + 1);
+    yellowNum = Math.floor(Math.random() * 10 + 1);
+    greenNum = Math.floor(Math.random() * 10 + 1);
+    redNum = Math.floor(Math.random() * 10 + 1);
+    console.log(blueNum);
+    console.log(yellowNum);
+    console.log(greenNum);
+    console.log(redNum);
+}
+
+function numInput(){
+
+    $("#crystyle1").on("click", function(){
+        userNum = userNum + blueNum;
         
-        name: "Kobe Wan Kenobi",
-        attackPower: 8,
-        counterAttackPower: 24,
-        hp: 120,
+        $("#currentScore").html("Current score: " + userNum);
+
+        winCondition();
+    });
+    $("#crystyle2").on("click", function(){
+        userNum = userNum + yellowNum;
         
-    },
+        $("#currentScore").html("Current score: " + userNum);
 
-    luke: {
-
-        name: "Luke Skywalton",
-        attackPower: 10,
-        counterAttackPower: 5,
-        hp: 100,
+        winCondition();
+    });
+    $("#crystyle3").on("click", function(){
+        userNum = userNum + greenNum;
         
-    },
+        $("#currentScore").html("Current score: " + userNum);
 
-    cp3: {
-
-        name: "CP3-0",
-        attackPower: 10,
-        counterAttackPower: 20,
-        hp: 150,
+        winCondition();
+    });
+    $("#crystyle4").on("click", function(){
+        userNum = userNum + redNum;
         
-    },
+        $("#currentScore").html("Current score: " + userNum);
 
-    chuck: {
+        winCondition();
+    });
+}
 
-        name: "Jabba the Chuck",
-        attackPower: 12,
-        counterAttackPower: 25,
-        hp: 180,
-        
+function winCondition(){
+    if (userNum === numMatch){
+        wins++;
+        alert("You win!!!");
+        $("#winCount").html("Wins; " + wins);
+        start();
     }
-};
-
-$(document).ready(function(){
-
-    $("#char1").on("click", function(){
-        
-        $("#char1").appendTo("#playerCharHolder");
-        playerCharChosen = true;
-        
-    })
-    $("#char2").on("click", function(){
-        
-        $("#char2").appendTo("#playerCharHolder");
-        playerCharChosen = true;
-        
-    })
-    $("#char3").on("click", function(){
-        
-        $("#char3").appendTo("#playerCharHolder");
-        playerCharChosen = true;
-        
-    })
-    $("#char4").on("click", function(){
-        
-        $("#char4").appendTo("#playerCharHolder");
-        playerCharChosen = true;
-        
-    })
-
-    if(playerCharChosen){
-        
-        $("#char1").on("click", function(){
-        
-            $("#char1").appendTo("#enemyDefenderHolder");
-            
-            
-        })
-        $("#char2").on("click", function(){
-        
-            $("#char2").appendTo("#enemyDefenderHolder");
-            
-            
-        })
-        $("#char3").on("click", function(){
-        
-            $("#char3").appendTo("#enemyDefenderHolder");
-            
-            
-        })
-        $("#char4").on("click", function(){
-        
-            $("#char4").appendTo("#enemyDefenderHolder");
-            
-            
-        })
+    else if (userNum > numMatch){
+        losses++;
+        alert("You lose!!!");
+        $("#lossCount").html("Losses; " + losses);
+        start();
     }
-})
+}
+
+
+numInput();
+start();
