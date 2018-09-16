@@ -6,7 +6,24 @@ body{
 
 h1{
     text-align: center;
+    margin-top: 20px;
     margin-bottom: 40px;
+    font-size: 40px;
+}
+
+h4{
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+li{
+    font-size: 11px;
+    margin-bottom: 10px;
+}
+
+div{
+    font-size: 13px;
+    margin-bottom: 15px;
 }
 
 #randomizedNum{
@@ -27,4 +44,30 @@ h1{
 
 .picCont{
     text-align: center;
+}
+
+.crystyle:hover {
+    opacity: 0.7;
+}
+
+.crystyle {
+    cursor: pointer;
+}
+
+#alert{
+    text-align: center;
+}
+
+.mover{
+    margin-left: 350px;
+}
+
+.container{
+    margin-top:60px;
+}
+
+#reset{
+    text-align: center;
+    margin-top: 50px;
+    cursor: pointer;
 }

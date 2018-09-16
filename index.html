@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/animate.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>   
 
@@ -19,34 +20,43 @@
    <h1>Crystal Collector Game</h1>
 
    <div class="instructor">
-   <h4>Instructions</h4>
-   <p>You will be given a random number at the start of the game.</p>
-   <p>There are four crystals below. By clicking a crystal you will add a specific amount of points to your total score.</p>
-   <p>You win the game by matching your total score to random number, you lose the game if your total score goes above the random number.</p>
-   <p>The value of each crystal is hidden from you until you click on it.</p>
-   <p>Each time when the game starts, the game will change the value of each crystals.</p>
+    <h4>Instructions</h4>
+      <ul>
+        <li>Match the random number given</li>
+        <li>Click the crystals to get a random number</li>
+        <li>Keep clicking to add to your current score</li>
+        <li>You win when current score matches the random number</li>
+      </ul>
    </div>
 
-   <hr style="background-color: #ffffff; border-width: 3px;">
 
+   <div class="container">
+     <div class="row">
+      <div class="col-md-6">
+        <div id="randomizedNum">Number to match: </div>
+        <div id="currentScore">Current score: 0</div>
+      </div>
+      <div class="row-md-6 mover">
+        <div id="winCount"></div>
+        <div id="lossCount">Losses: 0</div>
+      </div>
+      </div>
+    </div>
+
+
+   <div id="alert">&nbsp;</div>
    
-   <div id="randomizedNum">Number to match: </div>
-
-   <div id="currentScore">Current score: 0</div>
-
-   <div id="winCount">Wins: 0</div>
-   <div id="lossCount">Losses: 0</div>
    
 
 
    <div class="picCont">
-   <img id="crystyle1" src="assets/images/crystal1.jpg" style="width: 10%; height: 10%;">
-   <img id="crystyle2" src="assets/images/crystal2.jpg" style="width: 10%; height: 10%;">
-   <img id="crystyle3" src="assets/images/crystal3.jpg" style="width: 10%; height: 10%;">
-   <img id="crystyle4" src="assets/images/crystal4.jpg" style="width: 10%; height: 10%;">
+   <img id="crystyle1" class ="crystyle" src="assets/images/blue.png" style="width: 10%; height: 10%;">
+   <img id="crystyle2" class ="crystyle" src="assets/images/yellow.png" style="width: 10%; height: 10%;">
+   <img id="crystyle3" class ="crystyle" src="assets/images/green.png" style="width: 6%; height: 6%;">
+   <img id="crystyle4" class ="crystyle" src="assets/images/red.png" style="width: 8%; height: 8%;">
    </div>
     
-    
+   <div id="reset">Reset</div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
