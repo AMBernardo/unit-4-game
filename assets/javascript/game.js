@@ -128,7 +128,7 @@ function resetGame(){
         start();
 
     })
-}
+} 
 
 
 resetGame();
